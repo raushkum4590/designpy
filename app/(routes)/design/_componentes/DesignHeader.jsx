@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Input } from '../../../../@/components/ui/input'
 import { Button } from '../../../../@/components/ui/button';
 import { Download, Save } from 'lucide-react';
-import { useCanvasHook } from '../[designId]/page';
+import { useCanvasHook } from '../../../../hooks/useCanvasHook';
 import { useMutation } from 'convex/react';
 import { api } from '../../../../convex/_generated/api';
 import { useParams } from 'next/navigation';
