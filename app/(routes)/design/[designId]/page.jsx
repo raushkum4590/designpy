@@ -31,11 +31,3 @@ function DesignEditor(){
 }
 
 export default DesignEditor
-
-export const useCanvasHook = () => {
-    const context = useContext(CanvasContext);
-    if(!context){
-        throw new Error('useCanvasHook must be used within a CanvasProvider')
-    }
-    return context;
-}
