@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import ShapeSetting from './../Shareable/ShapeSetting'
 import { useCanvasHook } from '../../hooks';
@@ -7,6 +8,9 @@ function TopNavBar() {
   const [showShapeSetting, setShowShapeSetting] = useState(false);
 
   useEffect(() => {
+    // Only run this effect in the browser
+    if (typeof window === 'undefined') return;
+    
     if(CanvasEditorStore){
       // Setup event handlers when canvas is available
       const handleSelection = () => {

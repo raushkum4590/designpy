@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Input } from '../../@/components/ui/input';
 import { Button } from '../../@/components/ui/button';
 import { SearchIcon } from 'lucide-react';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../hooks';
 import { FabricImage } from 'fabric';
 
 function SearchImages() {

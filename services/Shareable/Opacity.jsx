@@ -1,5 +1,5 @@
 import { Slider } from './../../@/components/ui/slider';
-import { useCanvasHook } from './../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../hooks';
 import React from 'react'
 
 function Opacity() {

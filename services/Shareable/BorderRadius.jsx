@@ -1,5 +1,5 @@
 import React from 'react'
-import { useCanvasHook } from './../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../hooks';
 import { Slider } from './../../@/components/ui/slider'
 
 

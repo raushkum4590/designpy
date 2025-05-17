@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ColorPickerEditor from './ColorPickerEditor';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../hooks';
 
 
 

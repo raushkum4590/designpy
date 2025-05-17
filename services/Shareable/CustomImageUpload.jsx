@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { Button } from '../../@/components/ui/button';
 import { FabricImage } from 'fabric';
 import { useParams } from 'next/navigation';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../hooks';
 import ImageKit from 'imagekit';
 import { AITransformationSettings } from '../option';
 
