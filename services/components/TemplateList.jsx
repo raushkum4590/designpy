@@ -1,6 +1,6 @@
 import { api } from './../../convex/_generated/api'
 import { useQuery } from 'convex/react'
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';  
+import { useCanvasHook } from '../../hooks/useCanvasHook';  
 import React from 'react'
 import Image from 'next/image';
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { ShapeList } from '../option'
 import Image from 'next/image'
 import { Circle, Line, Rect, Triangle } from 'fabric'
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page'
+import { useCanvasHook } from '../../hooks/useCanvasHook'
 
 function Shapes() {
 const { CanvasEditorStore } = useCanvasHook();

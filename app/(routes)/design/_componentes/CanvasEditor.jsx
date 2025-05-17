@@ -54,13 +54,12 @@ function CanvasEditor({designData}) {
      },[CanvasEditorStore])
 
     return (
-        <div className="bg-gray-200 w-full h-screen ">
+        <div className="bg-gray-200 w-full h-screen overflow-hidden">
             <TopNavBar/>
         
-        <div className=' flex  mt-12 items-center justify-center'>
-           
-            <canvas id='canvas' ref={canvasRef}/>
-        </div>
+            <div className='flex mt-12 items-center justify-center'>
+                <canvas id='canvas' ref={canvasRef}/>
+            </div>
         </div>
     );
 }

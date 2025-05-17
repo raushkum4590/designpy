@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import Shapes from '../Shareable/Shapes'
+import { useCanvasHook } from '../../hooks/useCanvasHook';
 
 function Elements() {
    
