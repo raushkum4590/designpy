@@ -18,14 +18,34 @@ const nextConfig = {
     return config;
   },
   
-  // Configure image domains
+  // Configure image domains - add unsplash domains to support image search
   images: {
-    domains: ['ik.imagekit.io'],
+    domains: [
+      'ik.imagekit.io',
+      'images.unsplash.com',
+      'plus.unsplash.com',
+      'api.unsplash.com',
+    ],
+    // Add remotePatterns to support all domains with https
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
   
-  // experimental settings if needed
-  experimental: {
-    // Remove any experimental settings that cause issues
+  // Output as standalone for better deployment compatibility
+  output: 'standalone',
+  
+  // Ensure we have proper environment variables in production
+  env: {
+    NEXT_PUBLIC_CONVEX_URL: process.env.NEXT_PUBLIC_CONVEX_URL,
+    NEXT_PUBLIC_STACK_PROJECT_ID: process.env.NEXT_PUBLIC_STACK_PROJECT_ID,
+    NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY: process.env.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY,
+    NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT: process.env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT,
+    NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY: process.env.NEXT_PUBLIC_IMAGEKIT_PUBLIC_KEY,
+    NEXT_PUBLIC_UNSPLASH_ACCESS_KEY: process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY,
   },
 }
 
