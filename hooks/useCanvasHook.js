@@ -1,8 +1,19 @@
 "use client"
 import { useState, useCallback, createContext, useContext } from 'react';
 
-// Create a context to hold canvas state
-export const CanvasContext = createContext();
+// Create a context with a default value to prevent undefined errors
+export const CanvasContext = createContext({
+  CanvasEditorStore: null,
+  setCanvasEditorStore: () => {},
+  selectedElement: null,
+  setSelectedElement: () => {},
+  isCanvasModified: false,
+  undo: () => {},
+  redo: () => {},
+  saveCanvas: () => null,
+  addElement: () => {},
+  removeElement: () => {}
+});
 
 // Provider component
 export const CanvasProvider = ({ children }) => {
@@ -14,14 +25,18 @@ export const CanvasProvider = ({ children }) => {
   
   // Save current state to history
   const saveToHistory = useCallback(() => {
-    if (!CanvasEditorStore) return;
-    
-    const currentState = CanvasEditorStore.toJSON();
-    const newHistory = canvasHistory.slice(0, historyIndex + 1);
-    newHistory.push(currentState);
-    
-    setCanvasHistory(newHistory);
-    setHistoryIndex(newHistory.length - 1);
+    try {
+      if (!CanvasEditorStore) return;
+      
+      const currentState = CanvasEditorStore.toJSON();
+      const newHistory = canvasHistory.slice(0, historyIndex + 1);
+      newHistory.push(currentState);
+      
+      setCanvasHistory(newHistory);
+      setHistoryIndex(newHistory.length - 1);
+    } catch (error) {
+      console.error("Error saving to history:", error);
+    }
   }, [CanvasEditorStore, canvasHistory, historyIndex]);
 
   // Undo operation
@@ -90,6 +105,7 @@ export const CanvasProvider = ({ children }) => {
     removeElement
   };
 
+  // Custom hook to use the canvas context with better error handling
   return (
     <CanvasContext.Provider value={value}>
       {children}
@@ -99,12 +115,41 @@ export const CanvasProvider = ({ children }) => {
 
 // Custom hook to use the canvas context
 export const useCanvasHook = () => {
-  const context = useContext(CanvasContext);
-  if (context === undefined) {
-    throw new Error('useCanvasHook must be used within a CanvasProvider');
+  try {
+    const context = useContext(CanvasContext);
+    if (context === undefined) {
+      console.warn('useCanvasHook was used outside of a CanvasProvider');
+      // Return default values instead of throwing
+      return {
+        CanvasEditorStore: null,
+        setCanvasEditorStore: () => {},
+        selectedElement: null,
+        setSelectedElement: () => {},
+        isCanvasModified: false,
+        undo: () => {},
+        redo: () => {},
+        saveCanvas: () => null,
+        addElement: () => {},
+        removeElement: () => {}
+      };
+    }
+    return context;
+  } catch (error) {
+    console.error("Error in useCanvasHook:", error);
+    // Return default values on error
+    return {
+      CanvasEditorStore: null,
+      setCanvasEditorStore: () => {},
+      selectedElement: null,
+      setSelectedElement: () => {},
+      isCanvasModified: false,
+      undo: () => {},
+      redo: () => {},
+      saveCanvas: () => null,
+      addElement: () => {},
+      removeElement: () => {}
+    };
   }
-  return context;
 };
 
-// Default export for backward compatibility
 export default useCanvasHook;
