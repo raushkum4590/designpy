@@ -1,14 +1,15 @@
+"use client"
 import React from 'react'
+import { StackProvider } from '@stackframe/stack';
 import WorkspaceHeader from './_componenetes/workspaceHeader'
 import SideBar from './_componenetes/sidebar'
 
 
-function Layout({children}) {
+export default function Layout({ children }) {
   return (
     <div>
-        <div>
-            <WorkspaceHeader />
-            <div className='flex '> 
+      <WorkspaceHeader />
+      <div className='flex '> 
                 {/* Sidebar */}
                 <SideBar />
                 
@@ -16,10 +17,6 @@ function Layout({children}) {
             {children}
             
             </div>
-
-        </div>
     </div>
-  )
+  );
 }
-
-export default Layout

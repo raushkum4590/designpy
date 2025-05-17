@@ -3,10 +3,13 @@ import { useParams } from 'next/navigation'
 import React, { useState, Suspense } from 'react'
 import { useQuery } from 'convex/react';
 import { api } from '../../../../convex/_generated/api';
-import { CanvasProvider } from '../../../../hooks';
-import DesignHeader from '../_componentes/DesignHeader';
-import CanvasEditor from '../_componentes/CanvasEditor';
-import Sidebar from '../_componentes/Sidebar';
+import { CanvasProvider } from '../../../../hooks/useCanvasHook';
+import dynamic from 'next/dynamic';
+
+// Use dynamic imports to ensure components using client APIs are only loaded on the client side
+const DesignHeader = dynamic(() => import('../_componentes/DesignHeader'), { ssr: false });
+const CanvasEditor = dynamic(() => import('../_componentes/CanvasEditor'), { ssr: false });
+const Sidebar = dynamic(() => import('../_componentes/Sidebar'), { ssr: false });
 
 function DesignEditor(){
     const { designId } = useParams();
@@ -64,4 +67,5 @@ class ErrorBoundary extends React.Component {
     }
 }
 
+// Only export the page component
 export default DesignEditor;

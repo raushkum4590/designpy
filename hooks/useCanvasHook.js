@@ -151,5 +151,3 @@ export const useCanvasHook = () => {
     };
   }
 };
-
-export default useCanvasHook;
