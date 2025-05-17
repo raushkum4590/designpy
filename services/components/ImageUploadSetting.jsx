@@ -1,7 +1,7 @@
 import React from 'react'
 import UploadImage from '../Shareable/UploadImage'
 import SearchImages from '../Shareable/SearchImages'
-import { useCanvasHook } from '../../hooks/useCanvasHook';
+import { useCanvasHook } from '../../hooks';
 
 function ImageUploadSetting() {
   return (

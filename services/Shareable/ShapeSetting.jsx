@@ -6,7 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "./../../@/components/ui/popover";
-import { useCanvasHook } from '../../hooks/useCanvasHook';
+import { useCanvasHook } from '../../hooks';
 
 function ShapeSetting() {
     const { CanvasEditorStore } = useCanvasHook();

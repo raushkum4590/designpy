@@ -3,13 +3,10 @@ import { useParams } from 'next/navigation'
 import React, { useState, Suspense } from 'react'
 import { useQuery } from 'convex/react';
 import { api } from '../../../../convex/_generated/api';
-import { CanvasProvider, useCanvasHook } from '../../../../hooks';
+import { CanvasProvider } from '../../../../hooks';
 import DesignHeader from '../_componentes/DesignHeader';
 import CanvasEditor from '../_componentes/CanvasEditor';
 import Sidebar from '../_componentes/Sidebar';
-
-// Re-export the hook for backward compatibility with existing imports
-export { useCanvasHook };
 
 function DesignEditor(){
     const { designId } = useParams();

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ShapeSetting from './../Shareable/ShapeSetting'
-import { useCanvasHook } from '../../hooks/useCanvasHook';
+import { useCanvasHook } from '../../hooks';
 
 function TopNavBar() {
   const { CanvasEditorStore } = useCanvasHook();

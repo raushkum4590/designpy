@@ -4,7 +4,7 @@ import { Loader2 } from 'lucide-react';
 import { useParams } from 'next/navigation';
 import React, { useState } from 'react';
 import { FabricImage } from 'fabric';
-import { useCanvasHook } from '../../hooks/useCanvasHook';
+import { useCanvasHook } from '../../hooks';
 
 function UploadImage() { 
   const { designId } = useParams();
