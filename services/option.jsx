@@ -47,25 +47,25 @@ export const canvasSizeOtptions=[{
     name:'facebook',
     width:473,
     height:700,
-    icon:'/insta.png',
+    icon:'/face.jpg',
 },
 {
     name:'linkedin',
     width:700,
     height:394,
-    icon:'/insta.png',
+    icon:'/link.jpg',
 },
 {
     name:'youtube',
     width:700,
     height:394,
-    icon:'/insta.png',
+    icon:'/you.jpg',
 },
 {
     name:'banner',
     width:500,
     height:300,
-    icon:'/insta.png',
+    icon:'/ban.jpg',
 }
 ]
 
